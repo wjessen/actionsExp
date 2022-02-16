@@ -29,7 +29,7 @@ jobs:
         app: [apples, oranges]
     steps:
       - name: Check Apple Changes
-        if: contains(${{ join(fromJSON(needs.changes.outputs.packages), ' ') }}, 'oranges')
+        if: contains(needs.changes.outputs.packages, oranges)
         run: |
           echo "${{ needs.changes.outputs.packages }}"
       - name: Sanity Check
