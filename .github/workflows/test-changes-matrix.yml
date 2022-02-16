@@ -24,13 +24,11 @@ jobs:
   test_apples:
     runs-on: ubuntu-latest
     needs: changes
+    if: ${{ contains(needs.changes.outputs.packages, matrix.app) }} 
     strategy:
       matrix:
         app: [apples, oranges]
     steps:
       - name: Check Postive Changes
-        if: ${{ contains(needs.changes.outputs.packages, matrix.app) }}
         run: echo "${{ matrix.app }} Changed"
-      - name: Check Negative Changes
-        if: ${{ !contains(needs.changes.outputs.packages, matrix.app) }}
-        run: echo "${{ matrix.app }} Unchanged"
+      
