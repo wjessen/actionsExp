@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "App ${{ matrix.apps }} had a change"
           echo ${{ needs.changes.outputs.packages }}
-          echo join(fromJSON(needs.changes.outputs.packages), ' ') > changed_files.txt
+          echo ${{ join(fromJSON(needs.changes.outputs.packages), ' ') }} > changed_files.txt
           if [[ grep -q ${{ matrix.apps }} changed_files.txt ]]; then
             echo "App ${{ matrix.apps }} had a change"
           else
