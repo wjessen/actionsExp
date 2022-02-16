@@ -34,4 +34,4 @@ jobs:
           echo "${{ join(fromJSON(needs.changes.outputs.packages), ' ') }} "
       - name: Sanity Check
         if: contains(" ", "apples")
-        run: echp "You are insane"
+        run: echo "You are insane"
