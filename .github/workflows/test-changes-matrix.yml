@@ -32,3 +32,4 @@ jobs:
         if: contains("${{ join(fromJSON(needs.changes.outputs.packages), ' ') }}", ${{ matrix.app }})
         run: |
           echo "${{ matrix.app }} changed"
+
