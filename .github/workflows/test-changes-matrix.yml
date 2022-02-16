@@ -30,9 +30,4 @@ jobs:
     steps:
       - name: Check Apple Changes
         if: ${{ contains(needs.changes.outputs.packages, matrix.app) }}
-        run: |
-          echo "${{ needs.changes.outputs.packages }}"
-          echo "${{ matrix.app }}"
-      - name: Sanity Check
-        if: contains(' ', 'apples')
-        run: echo "You are insane"
+        run: echo "${{ matrix.app }} Changed"
