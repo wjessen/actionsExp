@@ -32,4 +32,6 @@ jobs:
         if: contains("${{ join(fromJSON(needs.changes.outputs.packages), ' ') }}", "${{ matrix.app }}")
         run: |
           echo "${{ join(fromJSON(needs.changes.outputs.packages), ' ') }} "
-
+      - name: Sanity Check
+        if: contains(" ", "apples")
+        run: echp "You are insane"
