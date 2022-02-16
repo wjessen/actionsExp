@@ -28,6 +28,9 @@ jobs:
       matrix:
         app: [apples, oranges]
     steps:
-      - name: Check Apple Changes
+      - name: Check Postive Changes
         if: ${{ contains(needs.changes.outputs.packages, matrix.app) }}
         run: echo "${{ matrix.app }} Changed"
+      - name: Check Negative Changes
+        if: ${{ !contains(needs.changes.outputs.packages, matrix.app) }}
+        run: echo "${{ matrix.app }} Unchanged"
