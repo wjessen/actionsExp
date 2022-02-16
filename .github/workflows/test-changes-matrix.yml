@@ -29,8 +29,8 @@ jobs:
         apps: [apples, oranges]
     steps:
       - name: Check Apple Changes
-        if: contains(${{ needs.changes.output.packages }}, ${{ matrix.apps }})
+        if: contains(${{ needs.changes.outputs.packages }}, ${{ matrix.apps }})
         run: |
           echo "App ${{ matrix.apps }} had a change"
-          echo ${{ needs.changes.output.packages }}
+          echo ${{ needs.changes.outputs.packages }}
 
