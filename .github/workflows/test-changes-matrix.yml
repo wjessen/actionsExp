@@ -6,7 +6,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      packages: ${{ steps.packages.outputs.changes}}
+      packages: ${{ steps.packages.outputs.changes }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
         app: [apples, oranges]
     steps:
       - name: Check Apple Changes
-        if: contains('apples', '${{ matrix.app }}')
+        if: contains('${{ join(fromJSON(needs.changes.outputs.packages), ' ') }}', 'oranges')
         run: |
           echo "${{ needs.changes.outputs.packages }}"
       - name: Sanity Check
