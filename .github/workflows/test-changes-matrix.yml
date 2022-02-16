@@ -23,5 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: changes
     strategy:
-      matrix: [apples, oranges]
+      matrix:
+        apps: [apples, oranges]
     steps:
+      - name: Check Apple Changes
+        if: contains(${{ needs.changes.output.packages }}, ${{ matrix.apps }})
+        run: |
+          echo "App ${{ matrix.apps }} had a change"
+
