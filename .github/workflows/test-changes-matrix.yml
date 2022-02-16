@@ -8,6 +8,8 @@ jobs:
     outputs:
       packages: ${{ steps.packages.outputs.changes}}
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
       - name: Detect Changed Packages
         uses: dorny/paths-filter@v2
         id: packages
