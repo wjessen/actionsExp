@@ -32,4 +32,5 @@ jobs:
         if: contains(${{ needs.changes.output.packages }}, ${{ matrix.apps }})
         run: |
           echo "App ${{ matrix.apps }} had a change"
+          echo ${{ needs.changes.output.packages }}
 
