@@ -26,14 +26,9 @@ jobs:
     needs: changes
     strategy:
       matrix:
-        apps: [apples, oranges]
+        app: [apples, oranges]
     steps:
       - name: Check Apple Changes
+        if: contains("${{ join(fromJSON(needs.changes.outputs.packages), ' ') }}", ${{ matrix.app }})
         run: |
-          echo ${{ needs.changes.outputs.packages }}
-          echo ${{ join(fromJSON(needs.changes.outputs.packages), ' ') }} > changed_files.txt
-          if grep -q ${{ matrix.apps }} changed_files.txt; then
-            echo "App ${{ matrix.apps }} had a change"
-          else
-            echo "App ${{ matrix.apps }} had no change"
-          fi
+          echo "${{ matrix.app }} changed"
