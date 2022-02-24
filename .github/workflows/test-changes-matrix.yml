@@ -35,7 +35,12 @@ jobs:
   test_env:
     runs-on: ubuntu-latest
     steps:
+      - name: Check Environment
+        uses: actions/checkout@v2
+
       - run: |
+          VAR1=$(git rev-parse ${{ github.ref }}^)
           VAR2=${GITHUB_REF}^
+          echo "VAR1: ${VAR}"
           echo "VAR2: ${VAR2}"
 
