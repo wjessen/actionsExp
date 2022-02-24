@@ -38,7 +38,7 @@ jobs:
       - name: Check Environment
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2        
+          fetch-depth: 0        
       - run: |
           VAR1=$(git rev-parse ${{ github.ref }}^)
           VAR2=${GITHUB_REF}^
