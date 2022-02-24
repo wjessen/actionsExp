@@ -40,7 +40,12 @@ jobs:
         with:
           fetch-depth: 2        
       - run: |
+<<<<<<< HEAD
           VAR1=$(git rev-parse ${{ github.ref }}^)
+=======
+          git fetch
+          VAR1=$(git rev-parse ${{ github.ref }})
+>>>>>>> e3519d14a0a69f6cf1997e2e47257178a43f42f7
           VAR2=${GITHUB_REF}^
           echo "VAR1: ${VAR1}"
           echo "VAR2: ${VAR2}"
