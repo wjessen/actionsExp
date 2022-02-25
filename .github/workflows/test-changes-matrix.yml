@@ -1,5 +1,4 @@
-name: Test Changes in a Matrix
-
+name: ${{ github.ref}}
 on: push
 
 jobs:
