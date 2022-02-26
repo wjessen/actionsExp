@@ -3,4 +3,6 @@ Apples is changing again
 
 oranges
 
-apples
+apple
+
+oranges
