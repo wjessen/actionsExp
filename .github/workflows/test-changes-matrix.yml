@@ -14,7 +14,7 @@ jobs:
         uses: dorny/paths-filter@v2
         id: packages
         with:
-          list-files: "csv"
+          list-files: "json"
           filters: |
             apples:
               - 'apples/**'
@@ -34,7 +34,7 @@ jobs:
   test_oranges:
     runs-on: ubuntu-latest
     needs: changes
-    if: ${{ contains(needs.changes.outputs.packages, 'oranges') }}
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'oranges') }}
     steps:
       - name: Check Negative Changes
         run: echo "oranges Changed"
