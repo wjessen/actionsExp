@@ -39,4 +39,10 @@ jobs:
       - name: Check Negative Changes
         run: echo "oranges Changed"
 
-
+  test_oranges_two:
+    runs-on: ubuntu-latest
+    needs: changes
+    if: ${{ contains(fromJSON(needs.changes.outputs.packages), 'oranges-two') }}
+    steps:
+      - name: Check Oranges-Two Changes
+        run: echo "oranges-two Changed"
