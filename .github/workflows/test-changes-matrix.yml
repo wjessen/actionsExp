@@ -14,7 +14,7 @@ jobs:
         uses: dorny/paths-filter@v2
         id: packages
         with:
-          list-files: "json"
+          list-files: "shell"
           filters: |
             apples:
               - 'apples/**'
