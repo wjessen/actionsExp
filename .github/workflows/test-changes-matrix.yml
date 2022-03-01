@@ -20,6 +20,8 @@ jobs:
               - 'apples/**'
             oranges:
               - 'oranges/**'
+            oranges-two:
+              - 'oranges-two/**'
     
   test_apples:
     runs-on: ubuntu-latest
