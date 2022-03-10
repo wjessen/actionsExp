@@ -9,7 +9,7 @@ jobs:
       # packages: ${{ steps.packages.outputs.changes }}
     steps:
         - name: check docker
-          run: docker image rm adsfadsf
+          run: docker inspect rsdfs
         - name: another step
           run: docker run hello-world
         
